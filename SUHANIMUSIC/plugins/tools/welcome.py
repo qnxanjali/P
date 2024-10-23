@@ -1,5 +1,7 @@
 import os
 from PIL import ImageDraw, Image, ImageFont, ImageChops
+from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import *
 from pyrogram.types import *
 from logging import getLogger
