@@ -90,16 +90,13 @@ async def greet_group(_, member: ChatMemberUpdated):
             photo=welcomeimg,
             caption=f"""
 ◈━━━━━━𝐇𝐞𝐲™🎫━━━━━━◈            
-Wᴇʟᴄᴏᴍᴇ Tᴏ {member.chat.title}
+ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {member.chat.title}
 ➖➖➖➖➖➖➖➖➖➖➖
-Nᴀᴍᴇ ✧ {user.mention}
-Iᴅ ✧ {user.id}
-Usᴇʀɴᴀᴍᴇ ✧ @{user.username}
+ɴᴀᴍᴇ ✧ {user.mention}
+ɪᴅ ✧ {user.id}
+ᴜsᴇʀɴᴀᴍᴇ ✧ @{user.username}
 ➖➖➖➖➖➖➖➖➖➖➖
-✨║𝐑𝐔𝐋𝐄𝐒┣┈•✤ /rules 
-ᴘʟᴇᴀsᴇ ғᴏʟʟᴏᴡ ᴛʜᴇ ɢʀᴏᴜᴘ ʀᴜʟᴇs​🥺
-✨║𝐓𝐀𝐆┣┈•✤  /tag 
-✦𝐔𝐒𝐄 ᴛʜɪs ᴛᴀɢ ᴛᴏ sᴛᴀʏ ᴄᴏɴɴᴇᴄᴛᴇᴅ
+ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs ✧ {count}
 ━━━━━━━━━━━━━━━━━━━
 """,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/ari_music_4u_bot?startgroup=true")]])
