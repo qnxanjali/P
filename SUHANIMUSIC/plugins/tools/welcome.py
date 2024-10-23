@@ -52,8 +52,9 @@ def welcomepic(pic, user, chatname, id, uname):
     font = ImageFont.truetype('SUHANIMUSIC/assets/font.ttf', size=40)
     welcome_font = ImageFont.truetype('SUHANIMUSIC/assets/font.ttf', size=60)
     draw.text((730, 250), f'STATUS: MEMBER', fill=(255, 255, 255), font=font)
-    draw.text((730, 330), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((730, 330), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
+    draw.text((730, 320), f'NAME: {user}', fill=(255, 255, 255), font=font)
+    draw.text((730, 380), f'ID: {id}', fill=(255, 255, 255), font=font)
+  # draw.text((730, 380), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
     pfp_position = (151, 139)
     background.paste(pfp, pfp_position, pfp)
     background.save(f"downloads/welcome#{id}.png")
@@ -86,21 +87,29 @@ async def greet_new_member(_, member: ChatMemberUpdated):
         welcomeimg = welcomepic(
             pic, user.first_name, member.chat.title, user.id, user.username
         )
-        temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
+            button_text = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
+            add_button_text = "✙ ᴋɪᴅɴᴀᴘ ᴍᴇ ✙"
+            deep_link = f"tg://openmessage?user_id={user.id}"
+            add_link = f"https://t.me/{app.username}?startgroup=true"
+            temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
             member.chat.id,
             photo=welcomeimg,
             caption=f"""
-◈━━━━━━𝐇𝐞𝐲™🎫━━━━━━◈            
-ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {member.chat.title}
-➖➖➖➖➖➖➖➖➖➖➖
-ɴᴀᴍᴇ ✧ {user.mention}
-ɪᴅ ✧ {user.id}
-ᴜsᴇʀɴᴀᴍᴇ ✧ @{user.username}
-➖➖➖➖➖➖➖➖➖➖➖
-ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs ✧ {count}
-━━━━━━━━━━━━━━━━━━━
+
+**❅────✦ ᴡᴇʟᴄᴏᴍᴇ ✦────❅**
+   {member.chat.title}
+▰▰▰▰▰▰▰▰▰▰▰▰▰
+**➻ ɴᴀᴍᴇ »** {user.mention}
+**➻ ɪᴅ »** `{user.id}`
+**➻ ᴜ_ɴᴀᴍᴇ »** @{user.username}
+▰▰▰▰▰▰▰▰▰▰▰▰▰
+**➻ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs »** {count}
+**❅─────✧❅✦❅✧─────❅**
 """,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/ari_music_4u_bot?startgroup=true")]])
+            reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(button_text, url=deep_link)],
+                    [InlineKeyboardButton(text=add_button_text, url=add_link)],
+                ])
         )
     except Exception as e:
         LOGGER.error(e)
