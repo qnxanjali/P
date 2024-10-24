@@ -107,8 +107,8 @@ async def greet_group(_, member: ChatMemberUpdated):
 """,
             reply_markup=InlineKeyboardMarkup([
                 
-                [InlineKeyboardButton(f"{convert_to_small_caps('๏ ᴀᴅᴅ ᴍᴇ ๏')}", url=f"https://t.me/{app.username}?startgroup=true")],
-                [InlineKeyboardButton(f"{convert_to_small_caps('๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏')}", url=f"tg://openmessage?user_id={user.id}")]])
+                [InlineKeyboardButton(f"{('๏ ᴀᴅᴅ ᴍᴇ ๏')}", url=f"https://t.me/{app.username}?startgroup=true")],
+                [InlineKeyboardButton(f"{('๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏')}", url=f"tg://openmessage?user_id={user.id}")]])
         )
         
     except Exception as e:
