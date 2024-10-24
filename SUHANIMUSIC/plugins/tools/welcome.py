@@ -1,25 +1,9 @@
-from SUHANIMUSIC import app
-from pyrogram.errors import RPCError
-from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
-from os import environ
-from typing import Union, Optional
-from PIL import Image, ImageDraw, ImageFont
-from os import environ
-from pyrogram import Client, filters
-from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
-from PIL import Image, ImageDraw, ImageFont
-import asyncio, os, time, aiohttp
-from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont, ImageEnhance
-from asyncio import sleep
-from pyrogram import filters, Client, enums
-from pyrogram.enums import ParseMode
-from logging import getLogger
-from SUHANIMUSIC.utils.pro_ban import admin_filter
+import os
 from PIL import ImageDraw, Image, ImageFont, ImageChops
 from pyrogram import *
 from pyrogram.types import *
 from logging import getLogger
+from SUHANIMUSIC import app
 
 LOGGER = getLogger(__name__)
 
@@ -77,47 +61,11 @@ def welcomepic(pic, user, chatname, id, uname):
     return f"downloads/welcome#{id}.png"
 
 @app.on_message(filters.command("welcome") & ~filters.private)
-async def auto_state(_, message):
-    usage = "**ᴜsᴀɢᴇ:**\n**⦿ /welcome [on|off]**"
-    if len(message.command) == 1:
-        return await message.reply_text(usage)
-    chat_id = message.chat.id
-    user = await app.get_chat_member(message.chat.id, message.from_user.id)
-    if user.status in (
-        enums.ChatMemberStatus.ADMINISTRATOR,
-        enums.ChatMemberStatus.OWNER,
-    ):
-        A = await wlcm.find_one(chat_id)
-        if (
-        not member.new_chat_member
-        or member.new_chat_member.status in {"banned", "left", "restricted"}
-        or member.old_chat_member
-            
-        state = message.text.split(None, 1)[1].strip().lower()
-        if state == "off":
-            if A:
-                await message.reply_text("**ᴡᴇʟᴄᴏᴍᴇ ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ !**")
-            else:
-                await wlcm.add_wlcm(chat_id)
-                await message.reply_text(f"**ᴅɪsᴀʙʟᴇᴅ ᴡᴇʟᴄᴏᴍᴇ ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ɪɴ** {message.chat.title}")
-        elif state == "on":
-            if not A:
-                await message.reply_text("**ᴇɴᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ.**")
-            else:
-                await wlcm.rm_wlcm(chat_id)
-                await message.reply_text(f"**ᴇɴᴀʙʟᴇᴅ ᴡᴇʟᴄᴏᴍᴇ ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ɪɴ ** {message.chat.title}")
-        else:
-            await message.reply_text(usage)
-    else:
-        await message.reply("**sᴏʀʀʏ ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴇɴᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ!**")
-
-
-
 @app.on_chat_member_updated(filters.group, group=-3)
-async def greet_new_member(_, member: ChatMemberUpdated):
+async def greet_group(_, member: ChatMemberUpdated):
     chat_id = member.chat.id
     count = await app.get_chat_members_count(chat_id)
-        A = await wlcm.find_one(chat_id)
+    A = await wlcm.find_one(chat_id)
     if (
         not member.new_chat_member
         or member.new_chat_member.status in {"banned", "left", "restricted"}
@@ -130,7 +78,7 @@ async def greet_new_member(_, member: ChatMemberUpdated):
             user.photo.big_file_id, file_name=f"pp{user.id}.png"
         )
     except AttributeError:
-        pic = "SUHANIMUSIC/assets/wel2.png"
+        pic = "AarohiX/assets/wel2.png"
     if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
         try:
             await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
@@ -155,7 +103,7 @@ async def greet_new_member(_, member: ChatMemberUpdated):
 **➻ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs »** {count}
 **❅─────✧❅✦❅✧─────❅**
 """,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/ari_music_4u_bot?startgroup=true")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/ThePihuMusicBot?startgroup=true")]])
             )
         )
     except Exception as e:
