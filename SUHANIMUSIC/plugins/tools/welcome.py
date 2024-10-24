@@ -51,7 +51,7 @@ def welcomepic(pic, user, chatname, id, uname):
     pfp = circle(pfp)
     pfp = pfp.resize((447, 447))
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype('SUHANIMUSIC/assets/font.ttf', size=40)
+    font_large = ImageFont.truetype('SUHANIMUSIC/assets/font.ttf', size=40)
     welcome_font = ImageFont.truetype('SUHANIMUSIC/assets/font.ttf', size=60)
     draw.text((730, 250), f'STATUS: MEMBER', fill=(255, 255, 255), font=font)
     draw.text((730, 320), f'NAME: {user}', fill=(255, 255, 255), font=font_large)
