@@ -103,7 +103,10 @@ async def greet_group(_, member: ChatMemberUpdated):
 **➻ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs »** {count}
 **❅─────✧❅✦❅✧─────❅**
 """,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/ThePihuMusicBot?startgroup=true")]])
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", =f"https://t.me/{app.username}?startgroup=true")],
+                [InlineKeyboardButton(f"๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏", =f"tg://openmessage?user_id={user.id}")]
+            ])
             )
         
     except Exception as e:
