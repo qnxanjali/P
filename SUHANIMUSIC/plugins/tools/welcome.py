@@ -54,7 +54,7 @@ def welcomepic(pic, user, chatname, id, uname):
     font = ImageFont.truetype('SUHANIMUSIC/assets/font.ttf', size=40)
     welcome_font = ImageFont.truetype('SUHANIMUSIC/assets/font.ttf', size=60)
     draw.text((730, 250), f'STATUS: MEMBER', fill=(255, 255, 255), font=font)
-    draw.text((730, 320), f'NAME: {user}', fill=(255, 255, 255), font=font)
+    draw.text((730, 320), f'NAME: {user.mention}', fill=(255, 255, 255), font=font)
     draw.text((730, 380), f'ID: {id}', fill=(255, 255, 255), font=font)
   # draw.text((730, 380), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
     pfp_position = (151, 139)
@@ -107,7 +107,7 @@ async def greet_group(_, member: ChatMemberUpdated):
 """,
             reply_markup=InlineKeyboardMarkup([
                 
-                [InlineKeyboardButton(f"{('๏ ᴀᴅᴅ ᴍᴇ ๏')}", url=f"https://t.me/{app.username}?startgroup=true")],
+                [InlineKeyboardButton(f"{('๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ʙᴀʙʏ ๏')}", url=f"https://t.me/{app.username}?startgroup=true")],
                 [InlineKeyboardButton(f"{('๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏')}", url=f"tg://openmessage?user_id={user.id}")]])
         )
         
