@@ -1,3 +1,4 @@
+import os
 from SUHANIMUSIC import app
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
@@ -5,7 +6,6 @@ from os import environ
 from typing import Union, Optional
 from PIL import Image, ImageDraw, ImageFont
 from os import environ
-import random
 from pyrogram import Client, filters
 from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
 from PIL import Image, ImageDraw, ImageFont
@@ -89,6 +89,11 @@ async def auto_state(_, message):
         enums.ChatMemberStatus.OWNER,
     ):
         A = await wlcm.find_one(chat_id)
+        if (
+        not member.new_chat_member
+        or member.new_chat_member.status in {"banned", "left", "restricted"}
+        or member.old_chat_member
+            
         state = message.text.split(None, 1)[1].strip().lower()
         if state == "off":
             if A:
@@ -133,11 +138,7 @@ async def greet_new_member(_, member: ChatMemberUpdated):
         welcomeimg = welcomepic(
             pic, user.first_name, member.chat.title, user.id, user.username
         )
-            button_text = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
-            add_button_text = "✙ ᴋɪᴅɴᴀᴘ ᴍᴇ ✙"
-            deep_link = f"tg://openmessage?user_id={user.id}"
-            add_link = f"https://t.me/{app.username}?startgroup=true"
-            temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
+        temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
             member.chat.id,
             photo=welcomeimg,
             caption=f"""
@@ -152,10 +153,8 @@ async def greet_new_member(_, member: ChatMemberUpdated):
 **➻ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs »** {count}
 **❅─────✧❅✦❅✧─────❅**
 """,
-            reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(button_text, url=deep_link)],
-                    [InlineKeyboardButton(text=add_button_text, url=add_link)],
-                ])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/ari_music_4u_bot?startgroup=true")]])
+            )
         )
     except Exception as e:
         LOGGER.error(e)
