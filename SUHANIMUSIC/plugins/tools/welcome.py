@@ -1,5 +1,6 @@
 import os
 from PIL import ImageDraw, Image, ImageFont, ImageChops
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import *
 from pyrogram.types import *
 from logging import getLogger
@@ -104,10 +105,11 @@ async def greet_group(_, member: ChatMemberUpdated):
 **❅─────✧❅✦❅✧─────❅**
 """,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", =f"https://t.me/{app.username}?startgroup=true")],
-                [InlineKeyboardButton(f"๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏", =f"tg://openmessage?user_id={user.id}")]
-            ])
-            )
+                
+                [InlineKeyboardButton(f"{convert_to_small_caps('๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏')}", url=f"tg://openmessage?user_id={user.id}")],
+                [[InlineKeyboardButton(f"{convert_to_small_caps('๏ ᴀᴅᴅ ᴍᴇ ๏')}", url=f"https://t.me/{app.username}?startgroup=true")]
+
+  )
         
     except Exception as e:
         LOGGER.error(e)
