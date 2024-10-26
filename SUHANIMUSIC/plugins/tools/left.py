@@ -5,7 +5,12 @@ from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboa
 from os import environ
 from typing import Union, Optional
 from PIL import Image, ImageDraw, ImageFont
-import asyncio
+
+BUTTONS = [
+    [
+        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/ThePihuMusicBot?startgroup=true"),
+    ],
+]
 
 # --------------------------------------------------------------------------------- #
 
@@ -34,30 +39,24 @@ async def get_userinfo_img(
 
         circular_img = Image.new("RGBA", img.size, (0, 0, 0, 0))
         circular_img.paste(img, (0, 0), mask)
-        resized = circular_img.resize((400, 400))
-        bg.paste(resized, (440, 160), resized)
+        resized = circular_img.resize((286, 286))
+        bg.paste(resized, (297, 117), resized)
+
 
     img_draw = ImageDraw.Draw(bg)
-
-    img_draw.text(
-        (529, 627),
-        text=str(user_id).upper(),
-        font=get_font(46, font_path),
-        fill=(255, 255, 255),
-    )
 
     path = f"./userinfo_img_{user_id}.png"
     bg.save(path)
     return path
 
-# --------------------------------------------------------------------------------- #
-
-bg_path = "SUHANIMUSIC/assets/userinfo.png"
-font_path = "SUHANIMUSIC/assets/hiroko.ttf"
 
 # --------------------------------------------------------------------------------- #
 
-# -------------
+bg_path = "SUHANIMUSIC/assets/left.jpg"
+font_path = "SUHANIMUSIC/assets/font4.ttf"
+
+# --------------------------------------------------------------------------------- #
+
 
 @app.on_chat_member_updated(filters.group, group=20)
 async def member_has_left(client: app, member: ChatMemberUpdated):
@@ -65,7 +64,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
     if (
         not member.new_chat_member
         and member.old_chat_member.status not in {
-            "banned", "left", "restricted"
+            "💌"
         }
         and member.old_chat_member
     ):
@@ -91,35 +90,19 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 user_id=user.id,
                 profile_path=photo,
             )
-        
-            caption = f"**#New_Member_Left**\n\n**๏** {user.mention} **ʜᴀs ʟᴇғᴛ ᴛʜɪs ɢʀᴏᴜᴘ**\n**๏ sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ..!**"
-            button_text = "๏ ᴠɪᴇᴡ ᴜsᴇʀ ๏"
 
-            # Generate a deep link to open the user's profile
-            deep_link = f"tg://openmessage?user_id={user.id}"
-
+            caption = f"ㅤㅤ  ㅤ•●◉✿ ᴜsᴇʀ ʟᴇғᴛ ✿◉●•\n▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▰\n\n❖ ᴀ ᴍᴇᴍʙᴇʀ ʟᴇғᴛ ғʀᴏᴍ ɢʀᴏᴜᴘ.\n\n● ɢʀᴏᴜᴘ ➥ {member.chat.title}\n● ᴜsᴇʀ ɴᴀᴍᴇ ➥ {user.mention}\n● sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ, ʙᴀʙʏ.\n\n❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥  ˹ ᴘɪʜᴜ ꭙ ᴍᴜsɪᴄ™ ♡゙\n▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▰"
+            
             # Send the message with the photo, caption, and button
-            message = await client.send_photo(
+            await client.send_photo(
                 chat_id=member.chat.id,
                 photo=welcome_photo,
                 caption=caption,
-                reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(button_text, url=deep_link)]
-                ])
-            )
-
-            # Schedule a task to delete the message after 30 seconds
-            async def delete_message():
-                await asyncio.sleep(30)
-                await message.delete()
-
-            # Run the task
-            asyncio.create_task(delete_message())
-            
+                reply_markup=InlineKeyboardMarkup(BUTTONS),)
         except RPCError as e:
             print(e)
             return
     else:
         # Handle the case where the user has no profile photo
-        print(f"User {user.id} has no profile photo.")
-        
+        print(f"❖ User {user.id} has no profile photo.")
+      
