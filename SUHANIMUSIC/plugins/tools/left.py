@@ -94,7 +94,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
             
             # Send the message with the photo, caption, and button
             await client.send_photo(
-            #    chat_id=member.chat.id,
+                chat_id=member.chat.id,
                 photo=welcome_photo,
                 caption=caption,
                 reply_markup=InlineKeyboardMarkup(BUTTONS),)
