@@ -94,7 +94,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
             welcome_photo = await get_userinfo_img(
                 bg_path=bg_path,
                 font_path=font_path,
-                user_id=user.id,
+             #   user_id=user.id,
                 profile_path=photo,
             )
 
