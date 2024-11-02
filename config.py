@@ -50,7 +50,7 @@ MAIN_OWNER = int(getenv("OWNER_ID", 6260080241))
 # -----------------------------------------------------------------
 
 # make your bots privacy from telegra.ph and put your url here 
-PRIVACY_LINK = getenv("PRIVACY_LINK", "https://graph.org/Privacy-Policy-for-ProBots-09-10")
+PRIVACY_LINK = getenv("PRIVACY_LINK", "https://t.me/qnxanjaliabout")
 
 # -----------------------------------------------------------------
 # -----------------------------------------------------------------
