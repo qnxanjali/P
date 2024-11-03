@@ -1,7 +1,5 @@
 import math
 
-from SUHANIMUSIC import app
-
 from pyrogram.types import InlineKeyboardButton
 
 from SUHANIMUSIC.utils.formatters import seconds_to_min
@@ -35,31 +33,34 @@ def stream_markup_timer(_, chat_id, played, dur):
     percentage = (played_sec / duration_sec) * 200
     umm = math.floor(percentage)
     if 0 < umm <= 15:
-        bar = "ᴘ————————————"
+        bar = "ᴘ——————————————"
     elif 15 < umm < 30:
-        bar = "ᴘʀ———————————"
+        bar = "ᴘʀ—————————————"
     elif 30 <= umm < 45:
-        bar = "ᴘʀᴀ——————————"
+        bar = "ᴘʀᴀ————————————"
     elif 45 <= umm < 60:
-        bar = "ᴘʀᴀᴛ—————————"
+        bar = "ᴘʀᴀᴛ———————————"
     elif 60 <= umm < 75:
-        bar = "ᴘʀᴀᴛᴀ————————"
+        bar = "ᴘʀᴀᴛᴀ——————————"
     elif 75 <= umm < 90:
-        bar = "ᴘʀᴀᴛᴀᴘ———————"
+        bar = "ᴘʀᴀᴛᴀᴘ—————————"
     elif 90 <= umm < 105:
-        bar = "ᴘʀᴀᴛᴀᴘ♡゙——————"
+        bar = "ᴘʀᴀᴛᴀᴘ—————————"
     elif 105 <= umm < 120:
-        bar = "ᴘʀᴀᴛᴀᴘ♡゙s—————"
+        bar = "ᴘʀᴀᴛᴀᴘ—♡———————"
     elif 120 <= umm < 135:
-        bar = "ᴘʀᴀᴛᴀᴘ♡゙sᴜ————"
+        bar = "ᴘʀᴀᴛᴀᴘ—♡—s—————"
     elif 135 <= umm < 150:
-        bar = "ᴘʀᴀᴛᴀᴘ♡゙sᴜʜ———"
+        bar = "ᴘʀᴀᴛᴀᴘ—♡—sᴜ————"
     elif 150 <= umm < 165:
-        bar = "ᴘʀᴀᴛᴀᴘ♡゙sᴜʜᴀ——"
+        bar = "ᴘʀᴀᴛᴀᴘ—♡—sᴜʜ———"
     elif 165 <= umm < 180:    
-        bar = "ᴘʀᴀᴛᴀᴘ♡゙sᴜʜᴀɴ—"
-        else:
-        bar = "ᴘʀᴀᴛᴀᴘ♡゙sᴜʜᴀɴɪ"
+        bar = "ᴘʀᴀᴛᴀᴘ—♡—sᴜʜᴀ——"
+    elif 180 <= umm < 195:
+        bar = "ᴘʀᴀᴛᴀᴘ—♡—sᴜʜᴀɴ—"
+    else:    
+        bar = "ᴘʀᴀᴛᴀᴘ—♡—sᴜʜᴀɴɪ"
+    
     buttons = [
         [
             InlineKeyboardButton(
