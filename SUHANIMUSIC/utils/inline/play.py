@@ -4,7 +4,7 @@ from SUHANIMUSIC import app
 
 from pyrogram.types import InlineKeyboardButton
 
-from SUHANIMUSIC.utils.formatters import time_to_seconds
+from SUHANIMUSIC.utils.formatters import seconds_to_min
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
@@ -30,8 +30,8 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 
 def stream_markup_timer(_, chat_id, played, dur):
-    played_sec = time_to_seconds(played)
-    duration_sec = time_to_seconds(dur)
+    played_sec = seconds_to_min(played)
+    duration_sec = seconds_to_min(dur)
     percentage = (played_sec / duration_sec) * 200
     umm = math.floor(percentage)
     if 0 < umm <= 15:
