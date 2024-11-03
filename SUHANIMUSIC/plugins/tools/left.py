@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 BUTTONS = [
     [
-        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/ThePihuMusicBot?startgroup=true"),
+        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/TheAnjaliRobot?startgroup=true"),
     ],
 ]
 
@@ -90,7 +90,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 profile_path=photo,
             )
 
-            caption = f"**❅────✦ ᴜsᴇʀ ʟᴇғᴛ ✦────❅**\n\n{member.chat.title}\n\n▰▰▰▰▰▰▰▰▰▰▰▰▰\n➻ ᴀ ᴍᴇᴍʙᴇʀ ʟᴇғᴛ ғʀᴏᴍ ɢʀᴏᴜᴘ.\n➻ ᴜsᴇʀ ɴᴀᴍᴇ » {user.mention}\n➻ ɪ'ᴍ ʀᴇᴀʟʟʏ ᴍɪss ʏᴏᴜ ʙᴀʙᴜ.\n▰▰▰▰▰▰▰▰▰▰▰▰▰\n\n➻ ᴘᴏᴡᴇʀᴇᴅ ʙʏ »  ˹ sᴜʜᴀɴɪ ꭙ ᴍᴜsɪᴄ™ ♡゙\n\n❅─────✦❅✧❅✦─────❅"
+            caption = f"**❅────✦ ᴜsᴇʀ ʟᴇғᴛ ✦────❅**\n\n{member.chat.title}\n\n▰▰▰▰▰▰▰▰▰▰▰▰▰\n➻ ᴀ ᴍᴇᴍʙᴇʀ ʟᴇғᴛ ғʀᴏᴍ ɢʀᴏᴜᴘ.\n➻ ᴜsᴇʀ ɴᴀᴍᴇ » {user.mention}\n➻ ɪ'ᴍ ʀᴇᴀʟʟʏ ᴍɪss ʏᴏᴜ ʙᴀʙᴜ.\n▰▰▰▰▰▰▰▰▰▰▰▰▰\n\n➻ ᴘᴏᴡᴇʀᴇᴅ ʙʏ »  [🫧⏤͟͟͞ـﮩ♡︎ ˹Ҩ፝֟፝ͷ ꫝɴᴊᴀʟɪ˼ [🇮🇳]](https://t.me/AnjaliOwnerBot)**\n\n❅─────✦❅✧❅✦─────❅"
 
             # Send the message with the photo, caption, and button
             await client.send_photo(
