@@ -30,7 +30,7 @@ def track_markup(_, videoid, user_id, channel, fplay):
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
-    percentage = (played_sec / duration_sec) * 200
+    percentage = (played_sec / duration_sec) * 160
     umm = math.floor(percentage)
     if 0 < umm <= 13:
         bar = "ᴘ————————————"
@@ -48,7 +48,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "ᴘʀᴀᴛᴀᴘ♡゙——————"
     elif 91 <= umm < 104:
         bar = "ᴘʀᴀᴛᴀᴘ♡゙s—————"
-    elif 194 <= umm < 117:
+    elif 104 <= umm < 117:
         bar = "ᴘʀᴀᴛᴀᴘ♡゙sᴜ————"
     elif 117 <= umm < 130:
         bar = "ᴘʀᴀᴛᴀᴘ♡゙sᴜʜ———"
