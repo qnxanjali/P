@@ -4,6 +4,7 @@ from SUHANIMUSIC import app
 import config
 from SUHANIMUSIC.utils.formatters import time_to_seconds
 
+
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
         [
@@ -25,55 +26,61 @@ def track_markup(_, videoid, user_id, channel, fplay):
     ]
     return buttons
 
+
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 200
     umm = math.floor(percentage)
-    if 0 < umm <= 15:
-        bar = "ᴀ——————————————"
-    elif 15 < umm < 30:
-        bar = "ᴀɴ—————————————"
-    elif 30 <= umm < 45:
-        bar = "ᴀɴᴊ————————————"
-    elif 45 <= umm < 60:
-        bar = "ᴀɴᴊᴀ———————————"
-    elif 60 <= umm < 75:
-        bar = "ᴀɴᴊᴀʟ——————————"
-    elif 75 <= umm < 90:
-        bar = "ᴀɴᴊᴀʟɪ—————————"
-    elif 90 <= umm < 105:
-        bar = "ᴀɴᴊᴀʟɪ—————————"
-    elif 105 <= umm < 120:
-        bar = "ᴀɴᴊᴀʟɪ—♡———————"
-    elif 120 <= umm < 135:
-        bar = "ᴀɴᴊᴀʟɪ—♡—s—————"
-    elif 135 <= umm < 150:
-        bar = "ᴀɴᴊᴀʟɪ—♡—sɪ————"
-    elif 150 <= umm < 165:
-        bar = "ᴀɴᴊᴀʟɪ—♡—sɪɴ———"
-    elif 165 <= umm < 180:    
-        bar = "ᴀɴᴊᴀʟɪ—♡—sɪɴɢ——"
-    elif 180 <= umm < 195:
-        bar = "ᴀɴᴊᴀʟɪ—♡—sɪɴɢʟ—"
-    else:    
-        bar = "ᴀɴᴊᴀʟɪ—♡—sɪɴɢʟᴇ"
-    
+    if 0 < umm <= 14:
+        bar = "🅜︎—————————————"
+    elif 14 < umm < 28:
+        bar = "🅜︎🅐︎————————————"
+    elif 28 <= umm < 42:
+        bar = "🅜︎🅐︎🅗︎———————————"
+    elif 42 <= umm < 56:
+        bar = "🅜︎🅐︎🅗︎🅣︎——————————"
+    elif 56 <= umm < 70:
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞︎—————————"
+    elif 70 <= umm < 84:
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞—————————"
+    elif 84 <= umm < 98:
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞——❤️———————"
+    elif 98 <= umm < 112:
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞—♥️—🅐︎—————"
+    elif 112 <= umm < 126:
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞—❤️—🅐︎🅝︎————"
+    elif 126 <= umm < 140:
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞—❤️—🅐︎🅝︎🅙︎︎———"
+    elif 140 <= umm < 164:
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞—❤️—🅐︎🅝︎🅙︎🅐︎——"
+    elif 164 <= umm < 178:    
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞—❤️—🅐︎🅝︎🅙︎🅐︎🅛︎—"
+    else: 
+        bar = "🅜︎🅐︎🅗︎🅣︎🅞—♥️—🅐︎🅝︎🅙︎🅐︎🅛︎🅘︎"
     buttons = [
-        [
-            InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
-        ],
-        [
+         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
             InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        [
+            InlineKeyboardButton(
+                text=f"{played} {bar} {dur}",
+                callback_data="GetTimer",
+            )
+        ],
+          [
+            InlineKeyboardButton(
+                text="✰ 𝖡ᴧ፝֠֩ʙꭎ ✰", url="https://t.mechingchonggelichu",
+            ),
+            InlineKeyboardButton(
+                text="✰ 𝛅ᴏ፝֠֩𝛈ᴧ ✰", url="https://t.me/AnjaliOwnerBot",
+            )
+        ],
+          [ InlineKeyboardButton(text="ᴍᴀsᴛɪ ᴋɪ ʙᴀsᴛɪ", url=f"https://t.me/+b1gc4qrvfLZlNGI1")],
     ]
     return buttons
 
@@ -85,10 +92,19 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+         ],
+         [
+            InlineKeyboardButton(
+                text="✰ 𝖡ᴧ፝֠֩ʙꭎ ✰", url="https://t.me/VENOM_PRATAP",
+            ),
+            InlineKeyboardButton(
+                text="✰ 𝛅ᴏ፝֠֩𝛈ᴧ ✰", url="https://t.me/VENOM_SUHANI",
+            )
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+          [ InlineKeyboardButton(text="ᴍᴀsᴛɪ ᴋɪ ʙᴀsᴛɪ", url=f"https://t.me/+b1gc4qrvfLZlNGI1")],
     ]
     return buttons
+
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     buttons = [
@@ -111,6 +127,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     ]
     return buttons
 
+
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     buttons = [
         [
@@ -127,6 +144,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
         ],
     ]
     return buttons
+
 
 def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
     query = f"{query[:20]}"
