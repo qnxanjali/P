@@ -29,21 +29,21 @@ start_txt = """**
 async def start(_, msg):
     buttons = [
         [ 
-          InlineKeyboardButton("𝗔𝗗𝗗 𝗡𝗘𝗭𝗨𝗞𝗢", url=f"https://t.me/Suhani_X_Music_bot?startgroup=true")
+          InlineKeyboardButton("𝗔𝗗𝗗 𝗔𝗡𝗝𝗔𝗟𝗜 𝗥𝗢𝗕𝗢𝗧", url=f"https://t.me/TheAnjaliRobot?startgroup=true")
         ],
         [
-          InlineKeyboardButton("𝗛𝗘𝗟𝗣", url="https://t.me/venompratapchat"),
-          InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/VENOM_SUHANI"),
+          InlineKeyboardButton("𝗛𝗘𝗟𝗣", url="https://t.me/AnjaliOwnerBot"),
+          InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/AnjaliOwnerBot"),
           ],
                [
-                InlineKeyboardButton("𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/ProBotts"),
+                InlineKeyboardButton("𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/ANJALINETWORK"),
 
 ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await msg.reply_photo(
-        photo="https://envs.sh/TVa.jpg",
+        photo="https://envs.sh/qii.jpg",
         caption=start_txt,
         reply_markup=reply_markup
     )
